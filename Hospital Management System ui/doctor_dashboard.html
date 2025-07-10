@@ -34,46 +34,62 @@
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <h2 class="mb-4">Welcome, Dr. <span id="doctorName">Doctor</span>!</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-user-md fa-2x mb-2 text-primary"></i>
-                                <h5 class="card-title">Profile</h5>
-                                <p class="card-text">View and update your professional information.</p>
-                                <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-calendar-day fa-2x mb-2 text-primary"></i>
-                                <h5 class="card-title">Today's Appointments</h5>
-                                <p class="card-text">View and manage your appointments for today.</p>
-                                <a href="#" class="btn btn-outline-primary btn-sm">View Appointments</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-users fa-2x mb-2 text-primary"></i>
-                                <h5 class="card-title">Patient Management</h5>
-                                <p class="card-text">View and manage your patients' records.</p>
-                                <a href="#" class="btn btn-outline-primary btn-sm">Manage Patients</a>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar py-4 border-end">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarProfileBtn"><i class="fas fa-user-md me-2"></i>View Profile</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarAppointmentsBtn"><i class="fas fa-calendar-day me-2"></i>View Appointments</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarPatientsBtn"><i class="fas fa-users me-2"></i>Manage Patients</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-5">
+          <h2 class="mb-4">Welcome, Dr. <span id="doctorName">Doctor</span>!</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-user-md fa-2x mb-2 text-primary"></i>
+                  <h5 class="card-title">Profile</h5>
+                  <p class="card-text">View and update your professional information.</p>
+                  <a href="doctor_view_profile.html" class="btn btn-outline-primary btn-sm">View Profile</a>
                 </div>
+              </div>
             </div>
-        </div>
-    </main>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-calendar-day fa-2x mb-2 text-primary"></i>
+                  <h5 class="card-title">Today's Appointments</h5>
+                  <p class="card-text">View and manage your appointments for today.</p>
+                  <a href="doctor_appointments.html" class="btn btn-outline-primary btn-sm">View Appointments</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-users fa-2x mb-2 text-primary"></i>
+                  <h5 class="card-title">Patient Management</h5>
+                  <p class="card-text">View and manage your patients' records.</p>
+                  <a href="doctor_manage_patients.html" class="btn btn-outline-primary btn-sm">Manage Patients</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
@@ -96,6 +112,18 @@
                 // Add logout logic here
                 window.location.href = 'login.html';
             });
+            // Sidebar navigation click events
+            $('#sidebarProfileBtn').on('click', function() {
+                window.location.href = 'doctor_view_profile.html';
+            });
+            $('#sidebarAppointmentsBtn').on('click', function() {
+                window.location.href = 'doctor_appointments.html';
+            });
+            $('#sidebarPatientsBtn').on('click', function() {
+                window.location.href = 'doctor_manage_patients.html';
+            });
+            // Highlight active sidebar button
+            $('#sidebarProfileBtn, #sidebarAppointmentsBtn, #sidebarPatientsBtn').removeClass('active');
         });
     </script>
 </body>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="fas fa-hospital-alt"></i>
+                <span>Hospital Management System</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbar-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar py-4 border-end">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2 active" id="sidebarUsersBtn"><i class="fas fa-users-cog me-2"></i>User Management</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarDoctorsBtn"><i class="fas fa-user-md me-2"></i>Doctor Management</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarPatientsBtn"><i class="fas fa-procedures me-2"></i>Patient Management</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarStatsBtn"><i class="fas fa-chart-bar me-2"></i>System Stats</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarReportsBtn"><i class="fas fa-file-alt me-2"></i>Reports</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-5">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>User Management</h2>
+            <button class="btn btn-primary" id="addUserBtn"><i class="fas fa-user-plus me-2"></i>Add User</button>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="searchUser" placeholder="Search users by name, email, or role...">
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>admin</td>
+                  <td>admin@hospital.com</td>
+                  <td><span class="badge bg-danger">Admin</span></td>
+                  <td><span class="badge bg-success">Active</span></td>
+                  <td>
+                    <button class="btn btn-secondary btn-sm me-1"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>drsmith</td>
+                  <td>dr.smith@hospital.com</td>
+                  <td><span class="badge bg-primary">Doctor</span></td>
+                  <td><span class="badge bg-success">Active</span></td>
+                  <td>
+                    <button class="btn btn-secondary btn-sm me-1"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>janedoe</td>
+                  <td>jane.doe@gmail.com</td>
+                  <td><span class="badge bg-info text-dark">Patient</span></td>
+                  <td><span class="badge bg-warning text-dark">Pending</span></td>
+                  <td>
+                    <button class="btn btn-secondary btn-sm me-1"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="addUserForm">
+              <div class="mb-3">
+                <label for="addUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="addUsername" required>
+              </div>
+              <div class="mb-3">
+                <label for="addEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="addEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="addRole" class="form-label">Role</label>
+                <select class="form-select" id="addRole" required>
+                  <option value="ADMIN">Admin</option>
+                  <option value="DOCTOR">Doctor</option>
+                  <option value="PATIENT">Patient</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="addStatus" class="form-label">Status</label>
+                <select class="form-select" id="addStatus" required>
+                  <option value="ACTIVE">Active</option>
+                  <option value="PENDING">Pending</option>
+                  <option value="INACTIVE">Inactive</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="addPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="addPassword" required>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editUserForm">
+              <div class="mb-3">
+                <label for="editUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="editUsername" required>
+              </div>
+              <div class="mb-3">
+                <label for="editEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="editEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="editRole" class="form-label">Role</label>
+                <select class="form-select" id="editRole" required>
+                  <option value="ADMIN">Admin</option>
+                  <option value="DOCTOR">Doctor</option>
+                  <option value="PATIENT">Patient</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="editStatus" class="form-label">Status</label>
+                <select class="form-select" id="editStatus" required>
+                  <option value="ACTIVE">Active</option>
+                  <option value="PENDING">Pending</option>
+                  <option value="INACTIVE">Inactive</option>
+                </select>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5 border-top shadow-sm">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="mb-2 mb-md-0">
+                    <i class="fas fa-hospital-alt me-2"></i>Hospital Management System
+                </div>
+                <div>
+                    &copy; 2023 Hospital Management System. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Sidebar navigation click events
+        $('#sidebarUsersBtn').addClass('active');
+        $('#sidebarDoctorsBtn').on('click', function() {
+            window.location.href = 'admin_doctors.html';
+        });
+        $('#sidebarPatientsBtn').on('click', function() {
+            window.location.href = 'admin_patients.html';
+        });
+        $('#sidebarStatsBtn').on('click', function() {
+            window.location.href = 'admin_stats.html';
+        });
+        $('#sidebarReportsBtn').on('click', function() {
+            window.location.href = 'admin_reports.html';
+        });
+        $('#addUserBtn').on('click', function() {
+          $('#addUserModal').modal('show');
+        });
+        $('.btn-secondary.btn-sm').on('click', function() {
+          $('#editUserModal').modal('show');
+        });
+      });
+    </script>
+</body>
+</html> 

@@ -1,250 +1,129 @@
-/* Global Styles */
+/* Modern Hospital Management System Custom Styles */
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #222;
+}
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-bottom: 1px solid #e3e6f0;
 }
 
 .navbar-brand {
-    font-weight: bold;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-footer {
-    margin-top: auto;
+.sidebar {
+  background: #fff;
+  min-height: 100vh;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+  border-radius: 0 1rem 1rem 0;
 }
 
-/* Card styling */
+.sidebar .btn {
+  text-align: left;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.sidebar .btn.active, .sidebar .btn:focus, .sidebar .btn:hover {
+  background: #0d6efd;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(13,110,253,0.10);
+}
+
 .card {
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border: none;
+  transition: box-shadow 0.2s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+  box-shadow: 0 4px 24px rgba(13,110,253,0.10);
 }
 
-.card-header {
-    border-radius: 10px 10px 0 0 !important;
-}
-
-/* Button styling */
-.btn {
-    border-radius: 5px;
-    padding: 10px 20px;
-}
-
-/* Form styling */
-.form-control, .form-select {
-    border-radius: 5px;
-    padding: 10px 15px;
-}
-
-.form-control:focus, .form-select:focus {
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    border-color: #86b7fe;
-}
-
-/* Dashboard styles */
-.stats-card {
-    border-left: 4px solid;
-    transition: transform 0.3s ease;
-}
-
-.stats-card:hover {
-    transform: translateY(-5px);
-}
-
-.stats-card .card-body {
-    padding: 20px;
-}
-
-.stats-card i {
-    font-size: 2.5rem;
-    opacity: 0.8;
-}
-
-.stats-card.primary {
-    border-left-color: #0d6efd;
-}
-
-.stats-card.success {
-    border-left-color: #198754;
-}
-
-.stats-card.warning {
-    border-left-color: #ffc107;
-}
-
-.stats-card.danger {
-    border-left-color: #dc3545;
-}
-
-/* Table styling */
 .table {
-    vertical-align: middle;
+  background: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-/* Sidebar (for dashboard) */
-.sidebar {
-    position: fixed;
-    top: 56px;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding: 48px 0 0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    background-color: #f8f9fa;
+.table thead {
+  background: #e9ecef;
+  font-weight: 600;
 }
 
-.sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: 0.5rem;
-    overflow-x: hidden;
-    overflow-y: auto;
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f6f8fa;
 }
 
-.sidebar .nav-link {
-    font-weight: 500;
-    color: #333;
-    padding: 0.75rem 1rem;
+.table-hover tbody tr:hover {
+  background-color: #e3f0ff;
 }
 
-.sidebar .nav-link:hover {
-    color: #0d6efd;
+.btn {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
-.sidebar .nav-link.active {
-    color: #0d6efd;
+.btn-primary, .btn-outline-primary:hover {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
 }
 
-.sidebar .nav-link i {
-    margin-right: 10px;
+.btn-outline-primary {
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+  background: #fff;
 }
 
-/* Responsive sidebar */
-@media (max-width: 767.98px) {
-    .sidebar {
-        position: static;
-        padding: 0;
-        box-shadow: none;
-    }
-    
-    .sidebar-sticky {
-        height: auto;
-    }
+.btn-outline-primary.active, .btn-outline-primary:focus {
+  background: #0d6efd;
+  color: #fff;
 }
 
-/* Appointment calendar */
-.calendar {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+footer {
+  background: #212529;
+  color: #fff;
+  border-top: 1px solid #e3e6f0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
 }
 
-.calendar .header {
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 10px 10px 0 0;
+h2, h4, h5 {
+  font-weight: 700;
+  color: #0d6efd;
 }
 
-.calendar .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    padding: 10px;
+.list-group-item {
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+  background: #f6f8fa;
 }
 
-.calendar .day {
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfd8dc;
+  border-radius: 4px;
 }
 
-.calendar .day:hover {
-    background-color: #f0f0f0;
-}
-
-.calendar .day.today {
-    background-color: #e6f7ff;
-    border: 1px solid #0d6efd;
-}
-
-.calendar .day.selected {
-    background-color: #0d6efd;
-    color: white;
-}
-
-/* Profile page */
-.profile-header {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.profile-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Invoice styles */
-.invoice {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.invoice-header {
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.invoice-footer {
-    border-top: 1px solid #e9ecef;
-    padding-top: 20px;
-    margin-top: 20px;
-}
-
-/* Loading spinner */
-.spinner-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* Pagination styling */
-.pagination {
-    margin-top: 20px;
-}
-
-.page-link {
-    color: #0d6efd;
-}
-
-.page-item.active .page-link {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+@media (max-width: 991.98px) {
+  .sidebar {
+    min-height: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
 } 

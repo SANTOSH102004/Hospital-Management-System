@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile - Hospital Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="fas fa-hospital-alt"></i>
+                <span>Hospital Management System</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbar-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar py-4 border-end">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2 active" id="sidebarProfileBtn"><i class="fas fa-user me-2"></i>View Profile</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarAppointmentsBtn"><i class="fas fa-calendar-check me-2"></i>Manage Appointments</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarBillingBtn"><i class="fas fa-file-invoice-dollar me-2"></i>View Bills</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-5">
+          <h2>My Profile</h2>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title" id="profileName">John Doe</h5>
+              <p class="card-text"><strong>Age:</strong> 30</p>
+              <p class="card-text"><strong>Gender:</strong> Male</p>
+              <p class="card-text"><strong>Contact:</strong> 123-456-7890</p>
+              <p class="card-text"><strong>Address:</strong> 123 Main St, City</p>
+              <button class="btn btn-primary">Edit Profile</button>
+            </div>
+          </div>
+          <h4>Medical History</h4>
+          <ul class="list-group">
+            <li class="list-group-item">Diabetes - Diagnosed 2020</li>
+            <li class="list-group-item">Allergy: Penicillin</li>
+          </ul>
+        </main>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5 border-top shadow-sm">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="mb-2 mb-md-0">
+                    <i class="fas fa-hospital-alt me-2"></i>Hospital Management System
+                </div>
+                <div>
+                    &copy; 2023 Hospital Management System. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Sidebar navigation click events
+        // Highlight active sidebar button
+        $('#sidebarProfileBtn').addClass('active');
+        $('#sidebarAppointmentsBtn, #sidebarBillingBtn').removeClass('active');
+        $('#sidebarProfileBtn').on('click', function() {
+            window.location.href = 'view_profile.html';
+        });
+        $('#sidebarAppointmentsBtn').on('click', function() {
+            window.location.href = 'manage_appointments.html';
+        });
+        $('#sidebarBillingBtn').on('click', function() {
+            window.location.href = 'view_billing.html';
+        });
+      });
+    </script>
+</body>
+</html> 

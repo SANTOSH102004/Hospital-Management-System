@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile - Hospital Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-hospital-alt me-2"></i>Hospital Management System
+            </a>
+        </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar py-4 border-end">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2 active" id="sidebarProfileBtn"><i class="fas fa-user-md me-2"></i>View Profile</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarAppointmentsBtn"><i class="fas fa-calendar-day me-2"></i>View Appointments</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarPatientsBtn"><i class="fas fa-users me-2"></i>Manage Patients</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-5">
+          <h2>My Profile</h2>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title" id="profileName">Dr. John Smith</h5>
+              <p class="card-text"><strong>Specialization:</strong> Cardiology</p>
+              <p class="card-text"><strong>Contact:</strong> 987-654-3210</p>
+              <p class="card-text"><strong>Email:</strong> dr.john@example.com</p>
+              <p class="card-text"><strong>Experience:</strong> 10 years</p>
+              <button class="btn btn-primary">Edit Profile</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2023 Hospital Management System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Sidebar navigation click events
+        $('#sidebarProfileBtn').addClass('active');
+        $('#sidebarAppointmentsBtn, #sidebarPatientsBtn').removeClass('active');
+        $('#sidebarProfileBtn').on('click', function() {
+            window.location.href = 'doctor_view_profile.html';
+        });
+        $('#sidebarAppointmentsBtn').on('click', function() {
+            window.location.href = 'doctor_appointments.html';
+        });
+        $('#sidebarPatientsBtn').on('click', function() {
+            window.location.href = 'doctor_manage_patients.html';
+        });
+      });
+    </script>
+</body>
+</html> 

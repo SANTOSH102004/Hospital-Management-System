@@ -13,75 +13,102 @@
 </head>
 <body class="bg-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-hospital-alt me-2"></i>Hospital Management System
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="fas fa-hospital-alt"></i>
+                <span>Hospital Management System</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto" id="navbar-items">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Dashboard</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <h2 class="mb-4">Welcome, <span id="patientName">Patient</span>!</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-user fa-2x mb-2 text-primary"></i>
-                                <h5 class="card-title">Profile</h5>
-                                <p class="card-text">View and update your personal information.</p>
-                                <p class="small text-muted">Keep your personal and medical information up to date. Update your contact details, address, and view your medical history securely.</p>
-                                <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-calendar-check fa-2x mb-2 text-primary"></i>
-                                <h5 class="card-title">Appointments</h5>
-                                <p class="card-text">View, book, or manage your appointments.</p>
-                                <p class="small text-muted">Easily view your upcoming and past appointments. Book new appointments with your preferred doctor, reschedule, or cancel as needed.</p>
-                                <a href="#" class="btn btn-outline-primary btn-sm">Manage Appointments</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-file-invoice-dollar fa-2x mb-2 text-primary"></i>
-                                <h5 class="card-title">Billing</h5>
-                                <p class="card-text">View and pay your bills online.</p>
-                                <p class="small text-muted">Access all your hospital bills in one place. Review your payment history, download invoices, and pay outstanding bills securely online.</p>
-                                <a href="#" class="btn btn-outline-primary btn-sm">View Bills</a>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar py-4 border-end">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarProfileBtn"><i class="fas fa-user me-2"></i>View Profile</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarAppointmentsBtn"><i class="fas fa-calendar-check me-2"></i>Manage Appointments</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarBillingBtn"><i class="fas fa-file-invoice-dollar me-2"></i>View Bills</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-5">
+          <h2 class="mb-4">Welcome, <span id="patientName">Patient</span>!</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-user fa-2x mb-2 text-primary"></i>
+                  <h5 class="card-title">Profile</h5>
+                  <p class="card-text">View and update your personal information.</p>
+                  <p class="small text-muted">Keep your personal and medical information up to date. Update your contact details, address, and view your medical history securely.</p>
+                  <a href="view_profile.html" class="btn btn-outline-primary btn-sm">View Profile</a>
                 </div>
+              </div>
             </div>
-        </div>
-    </main>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-calendar-check fa-2x mb-2 text-primary"></i>
+                  <h5 class="card-title">Appointments</h5>
+                  <p class="card-text">View, book, or manage your appointments.</p>
+                  <p class="small text-muted">Easily view your upcoming and past appointments. Book new appointments with your preferred doctor, reschedule, or cancel as needed.</p>
+                  <a href="manage_appointments.html" class="btn btn-outline-primary btn-sm">Manage Appointments</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-file-invoice-dollar fa-2x mb-2 text-primary"></i>
+                  <h5 class="card-title">Billing</h5>
+                  <p class="card-text">View and pay your bills online.</p>
+                  <p class="small text-muted">Access all your hospital bills in one place. Review your payment history, download invoices, and pay outstanding bills securely online.</p>
+                  <a href="view_billing.html" class="btn btn-outline-primary btn-sm">View Bills</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-5">
+    <footer class="bg-dark text-white text-center py-4 mt-5 border-top shadow-sm">
         <div class="container">
-            <p class="mb-0">&copy; 2023 Hospital Management System. All rights reserved.</p>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="mb-2 mb-md-0">
+                    <i class="fas fa-hospital-alt me-2"></i>Hospital Management System
+                </div>
+                <div>
+                    &copy; 2023 Hospital Management System. All rights reserved.
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -99,6 +126,18 @@
                 // Add logout logic here
                 window.location.href = 'login.html';
             });
+            // Sidebar navigation click events
+            $('#sidebarProfileBtn').on('click', function() {
+                window.location.href = 'view_profile.html';
+            });
+            $('#sidebarAppointmentsBtn').on('click', function() {
+                window.location.href = 'manage_appointments.html';
+            });
+            $('#sidebarBillingBtn').on('click', function() {
+                window.location.href = 'view_billing.html';
+            });
+            // Highlight active sidebar button
+            $('#sidebarProfileBtn, #sidebarAppointmentsBtn, #sidebarBillingBtn').removeClass('active');
         });
     </script>
 </body>

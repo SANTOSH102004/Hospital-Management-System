@@ -4,7 +4,6 @@ import com.hospital.management.dto.JwtRequest;
 import com.hospital.management.dto.JwtResponse;
 import com.hospital.management.dto.UserRegistrationDto;
 import com.hospital.management.model.User;
-import com.hospital.management.model.UserRole;
 import com.hospital.management.repository.UserRepository;
 import com.hospital.management.security.JwtTokenUtil;
 import com.hospital.management.security.UserDetailsServiceImpl;
@@ -54,19 +53,19 @@ public class AuthController {
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),
-                user.getRole().name()
+                user.getRole()
         ));
     }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UserRegistrationDto registrationDto) {
         // Check if username is already taken
-        if (userRepository.existsByUsername(registrationDto.getUsername())) {
+        if (userRepository.findByUsername(registrationDto.getUsername()).isPresent()) {
             return ResponseEntity.badRequest().body("Username is already taken!");
         }
 
         // Check if email is already in use
-        if (userRepository.existsByEmail(registrationDto.getEmail())) {
+        if (userRepository.findByEmail(registrationDto.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().body("Email is already in use!");
         }
 
@@ -75,10 +74,8 @@ public class AuthController {
         user.setUsername(registrationDto.getUsername());
         user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         user.setEmail(registrationDto.getEmail());
-        user.setFullName(registrationDto.getFullName());
-        user.setPhoneNumber(registrationDto.getPhoneNumber());
-        user.setRole(UserRole.valueOf(registrationDto.getRole()));     
-        user.setEnabled(true);
+        user.setRole(registrationDto.getRole().toUpperCase());
+        user.setStatus("ACTIVE");
 
         userRepository.save(user);
 

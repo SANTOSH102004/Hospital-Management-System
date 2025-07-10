@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments - Hospital Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-hospital-alt me-2"></i>Hospital Management System
+            </a>
+        </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar py-4 border-end">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarProfileBtn"><i class="fas fa-user-md me-2"></i>View Profile</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2 active" id="sidebarAppointmentsBtn"><i class="fas fa-calendar-day me-2"></i>View Appointments</button>
+              </li>
+              <li class="nav-item mb-2">
+                <button class="btn btn-outline-primary w-100 mb-2" id="sidebarPatientsBtn"><i class="fas fa-users me-2"></i>Manage Patients</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-5">
+          <h2>Today's Appointments</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Time</th><th>Patient</th><th>Reason</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>09:00 AM</td>
+                <td>Jane Doe</td>
+                <td>Consultation</td>
+                <td>Confirmed</td>
+              </tr>
+              <tr>
+                <td>10:30 AM</td>
+                <td>Bob Smith</td>
+                <td>Follow-up</td>
+                <td>Pending</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Upcoming Appointments</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date</th><th>Patient</th><th>Reason</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2024-06-12</td>
+                <td>Mary Johnson</td>
+                <td>Checkup</td>
+                <td>Confirmed</td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2023 Hospital Management System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Sidebar navigation click events
+        $('#sidebarAppointmentsBtn').addClass('active');
+        $('#sidebarProfileBtn, #sidebarPatientsBtn').removeClass('active');
+        $('#sidebarProfileBtn').on('click', function() {
+            window.location.href = 'doctor_view_profile.html';
+        });
+        $('#sidebarAppointmentsBtn').on('click', function() {
+            window.location.href = 'doctor_appointments.html';
+        });
+        $('#sidebarPatientsBtn').on('click', function() {
+            window.location.href = 'doctor_manage_patients.html';
+        });
+      });
+    </script>
+</body>
+</html> 
