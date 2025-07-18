@@ -18,6 +18,3 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 # COPY . /usr/share/nginx/html
 # EXPOSE 80
 
-
-
-
